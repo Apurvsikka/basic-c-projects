@@ -1,0 +1,74 @@
+//  module 
+// mName queueman
+// written by Apurvsikka
+
+#include <iostream>
+
+using namespace std;
+int queue[100],top=-1,bottom=-1,limit=100;
+int val;
+void Push(int value){
+//  to push elements int the queue
+// the elements pushed in the queue will appear as apart of the queue on using Peek()
+// the push element will increment only in the case of integers & pass an error if the element is not an integer
+// limit for pushing is 6.5 - 7 bits at one time 
+// else it will initiate an endless loop
+/*
+   START
+*/
+   if (bottom == limit - 1)
+   cout<<"Queue Overflow"<<endl;
+   else {
+      if (top == - 1)
+      top = 0;
+      // cout<<"Insert the element in queue : "<<endl;
+      // cin>>val;
+      bottom++;
+      queue[bottom] = val;
+   }
+
+/*
+   END
+*/
+}
+
+void Pop(){
+// to pop elements out of the queue
+// the popped elements will be completely removed from the queue & there is no way to retrieve the popped elements 
+// the pop funtion does not reqire a parameter & will malfunction if a parameter is provided
+// one element will be popped at a time
+// limit = `int k-1`
+/*
+   START
+*/
+if (top == - 1 || top > bottom) {
+      cout<<"Queue Underflow ";
+      return ;
+   } else {
+      cout<<"Element deleted from queue is : "<< queue[top] <<endl;
+      top++;;
+   }
+/*
+   END
+*/
+}void Peek(){
+// to display elements in the terminal 
+// the diplay output will not include the popped objects
+// like pop function, it also does not need a parameter
+// the code will malfunction if a parameter is given
+// the terminal wil not auto-update immidiately after any operation in the previous selection 
+/*
+  START
+*/
+     if (top == - 1)
+   cout<<"Queue is empty"<<endl;
+   else {
+      cout<<"Queue elements are : ";
+      for (int i = top; i <= bottom; i++)
+      cout<<queue[i]<<" ";
+         cout<<endl;
+   }
+/* 
+   END
+*/
+}
